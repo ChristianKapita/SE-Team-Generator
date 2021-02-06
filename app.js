@@ -15,12 +15,18 @@ function initApp(){
 
 function buildTeam() {
     inquirer.prompt([{
-        message: "Enter team member's name",
-        name: "name"
+        message: "Enter team member's name :",
+        name: "name",
+        validate: answer => {
+            if (answer !== "") {
+              return true;
+            }
+            return "Please enter team member's name.";
+          }
     },
     {
         type: "list",
-        message: "Select team member's role",
+        message: "Select team member's role : ",
         choices: [
             "Engineer",
             "Intern",
@@ -29,12 +35,30 @@ function buildTeam() {
         name: "role"
     },
     {
-        message: "Enter team member's id",
-        name: "id"
+        message: "Enter team member's id : ",
+        name: "id",
+        validate: answer => {
+            const pass = answer.match(
+              /^[1-9]\d*$/
+            );
+            if (pass) {
+              return true;
+            }
+            return "Please enter a positive number greater than zero.";
+          }
     },
     {
-        message: "Enter team member's email address",
-        name: "email"
+        message: "Enter team member's email address : ",
+        name: "email",
+        validate: answer => {
+            const pass = answer.match(
+              /\S+@\S+\.\S+/
+            );
+            if (pass) {
+              return true;
+            }
+            return "Please enter a valid email address.";
+          }
     }])
     .then(function({name, role, id, email}) {
         let roleInfo = "";
@@ -47,7 +71,13 @@ function buildTeam() {
         }
         inquirer.prompt([{
             message: `Enter team member's ${roleInfo}`,
-            name: "roleInfo"
+            name: "roleInfo",
+            validate: answer => {
+                if (answer !== "") {
+                  return true;
+                }
+                return `Please enter team member's ${roleInfo}`;
+              }
         },
         {
             type: "list",
