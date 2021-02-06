@@ -173,6 +173,7 @@ function addHtml(teamMember){
             <div class="card-header text-center h4">${name}</div>
             <div class="card-header text-center h6"><i class="fas fa-cogs"></i>${role}</div>
             <div class="card-body text-primary">
+            <h6 class="card-text">My information</h6>
             <p class="card-text">ID: ${id}</p>
             <p class="card-text">Email Address: ${email}</p>
             <p class="card-text">GitHub: ${gitHub}</p>
@@ -188,6 +189,7 @@ function addHtml(teamMember){
             <div class="card-header text-center h4">${name}</div>
             <div class="card-header text-center h6"><i class="fas fa-users"></i>${role}</div>
             <div class="card-body text-primary">
+            <h6 class="card-text">My information</h6>
             <p class="card-text">ID: ${id}</p>
             <p class="card-text">Email Address: ${email}</p>
             <p class="card-text">Office Phone: ${officePhone}</p>
@@ -203,6 +205,7 @@ function addHtml(teamMember){
             <div class="card-header text-center h4">${name}</div>
             <div class="card-header text-center h6"><i class="fas fa-user-graduate"></i>${role}</div>
             <div class="card-body text-primary">
+            <h6 class="card-text">My information</h6>
             <p class="card-text">ID: ${id}</p>
             <p class="card-text">Email Address: ${email}</p>
             <p class="card-text">School: ${school}</p>
