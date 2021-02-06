@@ -32,7 +32,6 @@ node server.js
 
 1. Working app
 
-<iframe src="https://giphy.com/embed/R3yw6YFkiDJB3NW15K" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/R3yw6YFkiDJB3NW15K">via GIPHY</a></p>
 ![Alt Text](https://media.giphy.com/media/R3yw6YFkiDJB3NW15K/giphy.gif)
 
 2. Example of a team profile generated
