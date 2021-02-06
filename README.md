@@ -49,7 +49,7 @@ node server.js
 - :octocat: Github: [ChristianKapita](https://github.com/ChristianKapita)
 
 
-### Built With
+### Technologies used
 
 </br>
 <p align="center">
