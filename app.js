@@ -2,13 +2,15 @@ const inquirer=require("inquirer");
 const fs=require("fs");
 const Manager=require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
-const Intern=require("./lib/Manager");
+const Intern=require("./lib/Intern");
 
 const team=[];
 
 function initApp(){
-      generateHtml();
-      buildTeam();
+    startGenerateHtml();
+    buildTeam();
+    
+     
 }
 
 function buildTeam() {
@@ -66,16 +68,125 @@ function buildTeam() {
             } else {
                 newMember = new Manager(name, id, email, roleInfo);
             }
-            employees.push(newMember);
+           team.push(newMember);
             addHtml(newMember)
             .then(function() {
                 if (moreMembers === "yes") {
                     buildTeam();
                 } else {
-                    finishHtml();
+                    finishgeneratehHtml();
                 }
             });
             
         });
     });
 }
+
+function  startGenerateHtml(){
+    const html=`<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>My Team</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/c502137733.js"></script>
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center bg-primary my-5 py-5 display-4 text-white">
+                    <h1 class="text-center">My Team</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">`;
+            fs.writeFile("./output/team.html",html,function(err){
+                if(err) {
+                    console.log("This is the error",err);
+                }
+
+});
+}
+
+function finishgeneratehHtml(){
+    const html = ` </div>
+    </div>
+    
+</body>
+</html>`;
+
+    fs.appendFile("./output/team.html", html, function (err) {
+        if (err) {
+            console.log(err);
+        };
+    });
+    console.log("end");
+}
+function addHtml(teamMember){
+    return new Promise (function(resolve, reject){
+        const name = teamMember.getName();
+        const role = teamMember.getRole();
+        const id = teamMember.getId();
+        const email = teamMember.getEmail();
+        let data = "";
+        if (role === "Engineer") {
+            const gitHub = teamMember.getGithub();
+            data = `<div class="col-4">
+            <div class="card mx-auto border-primary  mb-3" style="max-width: 18rem">
+            <div class="card-header text-center h4">${name}</div>
+            <div class="card-header text-center h6"><i class="fas fa-cogs"></i>${role}</div>
+            <div class="card-body text-primary">
+            <p class="card-text">ID: ${id}</p>
+            <p class="card-text">Email Address: ${email}</p>
+            <p class="card-text">GitHub: ${gitHub}</p>
+            </div>
+            </div>
+        </div>`;
+        }
+        else if( role === "Manager"){
+
+            const officePhone = teamMember.getOfficeNumber(); 
+            data = `<div class="col-4">
+            <div class="card mx-auto border-primary  mb-3" style="max-width: 18rem">
+            <div class="card-header text-center h4">${name}</div>
+            <div class="card-header text-center h6"><i class="fas fa-users"></i>${role}</div>
+            <div class="card-body text-primary">
+            <p class="card-text">ID: ${id}</p>
+            <p class="card-text">Email Address: ${email}</p>
+            <p class="card-text">Office Phone: ${officePhone}</p>
+            </div>
+            </div>
+        </div>`;
+        }
+        else
+        {
+            const school=teamMember.getSchool();
+            data = `<div class="col-4">
+            <div class="card mx-auto border-primary  mb-3" style="max-width: 18rem">
+            <div class="card-header text-center h4">${name}</div>
+            <div class="card-header text-center h6"><i class="fas fa-user-graduate"></i>${role}</div>
+            <div class="card-body text-primary">
+            <p class="card-text">ID: ${id}</p>
+            <p class="card-text">Email Address: ${email}</p>
+            <p class="card-text">School: ${school}</p>
+            </div>
+            </div>
+        </div>`
+        }
+        fs.appendFile("./output/team.html", data, function (err) {
+            if (err) {
+                return reject(err);
+            };
+            return resolve();
+        });
+    });
+    
+}
+initApp();
