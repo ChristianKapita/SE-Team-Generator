@@ -169,7 +169,7 @@ function addHtml(teamMember){
         if (role === "Engineer") {
             const gitHub = teamMember.getGithub();
             data = `<div class="col-4">
-            <div class="card mx-auto border-primary  mb-3" style="max-width: 18rem">
+            <div class="card mx-auto border-primary  mb-3" style="max-width: 18rem;">
             <div class="card-header text-center h4">${name}</div>
             <div class="card-header text-center h6"><i class="fas fa-cogs"></i>${role}</div>
             <div class="card-body text-primary">
