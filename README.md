@@ -36,7 +36,7 @@ node server.js
 
 2. Example of a team profile generated
 
-![Team Profile](https://user-images.githubusercontent.com/73804862/107108709-fb977900-6807-11eb-9dac-5d0d3c98a1aa.PNG)
+![Generated Team Profile](https://user-images.githubusercontent.com/73804862/107108904-c1c77200-6809-11eb-895a-35c1f6a6de1e.PNG)
 
 
 
