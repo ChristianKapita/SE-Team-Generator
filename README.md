@@ -2,7 +2,7 @@
 
 ## Description
 
-This Projected consists of CLI application that generate an HTML profile Team after user has respond to prompted questions regarding the Team.
+This Project consists of CLI application that generate an HTML profile Team after user has respond to prompted questions.
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ Steps to install application:
 ```
 git clone git@github.com:ChristianKapita/SE-Team-Generator.git
 npm instal
-node server.js
+node  app.js
 
 ```
 
@@ -49,7 +49,7 @@ node server.js
 - :octocat: Github: [ChristianKapita](https://github.com/ChristianKapita)
 
 
-### Technologies used
+### Technology used
 
 </br>
 <p align="center">
